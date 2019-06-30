@@ -3,7 +3,7 @@
   summary: "Adds more MIDI in capabilities to SuperDirt",
   version: "1.0",
   schelp: "SuperDirtMIDI.schelp",
-  dependencies: [],
+  dependencies: ["SuperDirt"],
   license: "GNU GPL v3.0",
   copyright: "munshkr",
   ext_dependency: "",
