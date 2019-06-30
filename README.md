@@ -26,7 +26,16 @@ MIDIIn.connectAll;
 ~smidi.map(18, \detune, { |v| v * 20 });
 ~smidi.map(19, \index, { |v| v * 100 });
 
-// free CC handlers when not using anymore
+// You can map and scale values with .mapScaled
+// e.g. this maps CC 16 to \modP and scales values from 3 to 30
+~smidi.mapScaled(16, \modP, 3, 30);
+
+// Trace parameter changes and print them on the Post console
+~smidi.trace;
+~smidi.trace(false); // stop trace
+
+// Finally, free CC handlers when not using them anymore
+// you will have to run .start again to remap them.
 ~smidi.free;
 ```
 

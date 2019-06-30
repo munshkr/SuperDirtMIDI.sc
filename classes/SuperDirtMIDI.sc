@@ -3,6 +3,7 @@ SuperDirtMIDI {
 	var midiFuncCc;
 	var <lastValues;
 	var <ccMapping;
+	var <traceEnabled;
 
 	*new { |dirt|
 		^super.newCopyArgs(dirt).init;
@@ -22,13 +23,16 @@ SuperDirtMIDI {
 			scaledVal = val / 127;
 			map = ccMapping[num];
 			if (map.notNil) {
+				var p = map[\param];
+				var v = map[\value].value(scaledVal);
+
 				dirt.orbits.do { |orbit|
-					var p = map[\param];
-					var v = map[\value].value(scaledVal);
 					orbit.server.sendMsg("/n_set", orbit.group, p, v);
 					orbit.defaultParentEvent[p] = v;
 					lastValues[p] = v;
-				}
+				};
+
+				if (traceEnabled) { [p, lastValues[p]].postln };
 			}
 		})
 	}
@@ -37,7 +41,15 @@ SuperDirtMIDI {
 		ccMapping[cc] = (param: param, value: value)
 	}
 
+	mapScaled { |cc, param, fromValue, toValue|
+		this.map(cc, param, { |v| (v * (toValue - fromValue)) + fromValue });
+	}
+
 	free {
 		midiFuncCc.free
+	}
+
+	trace { |value=true|
+		traceEnabled = value;
 	}
 }
