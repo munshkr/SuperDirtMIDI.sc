@@ -1,4 +1,4 @@
-superdirt-midi {
+SuperDirtMIDI {
 	// this is a normal constructor method
  *new { | arga, argb|
 		^super.new.init( arga, argb );

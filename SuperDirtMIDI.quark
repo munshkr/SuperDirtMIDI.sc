@@ -1,0 +1,11 @@
+(
+  name: "SuperDirtMIDI",
+  summary: "Adds more MIDI in capabilities to SuperDirt",
+  version: "1.0",
+  schelp: "SuperDirtMIDI.schelp",
+  dependencies: [],
+  license: "GNU GPL v3.0",
+  copyright: "munshkr",
+  ext_dependency: "",
+  url: "https://github.com/munshkr/SuperDirtMIDI.sc"
+)
