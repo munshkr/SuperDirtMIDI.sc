@@ -1,7 +1,7 @@
 (
   name: "SuperDirtMIDI",
   summary: "Adds more MIDI in capabilities to SuperDirt",
-  version: "1.0",
+  version: "1.0.1",
   schelp: "SuperDirtMIDI.schelp",
   dependencies: ["SuperDirt"],
   license: "GNU GPL v3.0",
