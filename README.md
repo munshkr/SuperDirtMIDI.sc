@@ -16,8 +16,7 @@ First make sure to have SuperDirt running.
 MIDIIn.connectAll;
 
 // Setup SuperDirtMIDI
-~smidi = SuperDirtMIDI.new(~dirt);
-~smidi.start;
+~smidi = SuperDirtMIDI.new.start;
 
 // Map some CCs to some Synthdef parameter, and pass a function to transform
 // the CC value. `v` is a value from 0-1 (scaled from 0-127)

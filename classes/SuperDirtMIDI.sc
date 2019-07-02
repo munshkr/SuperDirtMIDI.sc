@@ -1,12 +1,11 @@
 SuperDirtMIDI {
-	var dirt;
 	var midiFuncCc;
 	var <lastValues;
 	var <ccMapping;
 	var <traceEnabled;
 
-	*new { |dirt|
-		^super.newCopyArgs(dirt).init;
+	*new {
+		^super.new.init;
 	}
 
 	init {
@@ -26,7 +25,7 @@ SuperDirtMIDI {
 				var p = map[\param];
 				var v = map[\value].value(scaledVal);
 
-				dirt.orbits.do { |orbit|
+				~dirt.orbits.do { |orbit|
 					orbit.server.sendMsg("/n_set", orbit.group, p, v);
 					orbit.defaultParentEvent[p] = v;
 					lastValues[p] = v;
